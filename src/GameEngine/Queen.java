@@ -7,6 +7,5 @@ public class Queen extends Piece{
         super(initialLocation,pieceColor,chessBoard);
         this.pieceSymbol = "Q";
 
-    }//End of default constructor for Queen class
-
-}//End of public class Queen
+    } 
+}
