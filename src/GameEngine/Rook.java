@@ -7,6 +7,5 @@ public class Rook extends Piece{
         super(initialLocation,pieceColor,chessBoard);
         this.pieceSymbol = "R";
 
-    }//End of default constructor for Rook class
-
-}//End of public class Rook
+    }
+}
