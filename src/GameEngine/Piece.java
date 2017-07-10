@@ -2,7 +2,7 @@ package GameEngine;
 
 import java.util.*;
 
-public class Piece {
+public abstract class Piece {
 
 	private final boolean pieceColor;
 	protected String pieceSymbol;					//Used for debugging in print mode
@@ -35,6 +35,7 @@ public class Piece {
 	public Coordinate setCurrentLocation(Coordinate newLocation){ return this.currentLocation = newLocation; }
 
 	public String getPieceSymbol(){ return this.pieceSymbol; }
-        
+
+        public abstract boolean move(Coordinate newLocation);
 
 }//End of public class Piece
