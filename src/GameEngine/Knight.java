@@ -6,7 +6,5 @@ public class Knight extends Piece{
 
         super(initialLocation,pieceColor,chessBoard);
         this.pieceSymbol = "N";
-
-    }//End of default constructor for Knight class
-
-}//End of public class Knight
+    }
+}
