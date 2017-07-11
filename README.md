@@ -1,6 +1,7 @@
 # Chess-Application
+
 Last Update: 07/10/2017
----
+
 ## General Notes
 
 * This repository is used to hold the files that encompass the Chess Application Program.
