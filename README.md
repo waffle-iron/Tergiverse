@@ -15,7 +15,7 @@ Last Update: 07/10/2017
 
 ---
 
-* __Project Date Completion Estimiates:__
+* __Project Date Completion Estimates:__
 * __Stage 1 :__ 4 Month Time Window
 * __Stage 2 :__ 4 to 6 Month Time Window
 * __Stage 3 :__ 8 to 12 Month Time Window
