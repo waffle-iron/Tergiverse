@@ -23,7 +23,7 @@ Last Update: 07/10/2017
 * __Stage 5 :__ 1 to 2 Month Time Window
     
  * ***NOTE THAT THIS PROJECT IS A LONG TERM GOAL AND WILL BE EDITED UNTIL IT IS IN THE BEST CONDITION TO BE RELEASED***
----
+
 ## Contact Information
 
 * Creator: Andrew Cowden
