@@ -1,6 +1,6 @@
 # Chess-Application
 
-Last Update: 07/10/2017
+Last Update: 07/11/2017
 
 ## General Notes
 
@@ -23,6 +23,14 @@ Last Update: 07/10/2017
 * __Stage 5 :__ 1 to 2 Month Time Window
     
  * ***NOTE THAT THIS PROJECT IS A LONG TERM GOAL AND WILL BE EDITED UNTIL IT IS IN THE BEST CONDITION TO BE RELEASED***
+ 
+ ---
+ 
+ * __Files Contained within this Project__
+ * Game Engine contains files that are used for the backend piece movement, board creation, and game mechanics
+ * GUI Files contains the files used to display the board and game pieces
+ * Error Files contains common error methods and response codes
+ 
 
 ## Contact Information
 
