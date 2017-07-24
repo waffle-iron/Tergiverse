@@ -15,7 +15,15 @@ public class GameBoard {
         this.blackKingLocation = new Coordinate(0,0);   //NEEDS TO BE CHANGED
     }
     
-    public Piece getChessPiece(Coordinate location){
+    public Piece getPieceAt(Coordinate location){
         return chessArray[location.getX()][location.getY];
     }
+    
+    public boolean isValidLocation(Coordinate location, boolean color){
+        int x = location.getX();
+        int y = location.getY();
+        
+        if(x < BOARD_LENGTH && x >= 0 && y < BOARD_LENGTH && y >= 0){
+            
+            
 }
