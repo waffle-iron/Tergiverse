@@ -19,7 +19,25 @@ public class GameBoard {
         return chessArray[location.getX()][location.getY];
     }
     
-    public boolean outOfBounds(Coordinate location){
+    public boolean isWantedPiece(Coordiante location, boolean color){
+        int x = location.getX();
+        int y = location.getY();
+        
+        return chessArray[x][y] != null && chessArray[x][y].getColor() == color;
+    }
+    
+    public boolean hasNoBoardConflicts(Coordinate location, boolean color){
+        int x = location.getX();
+        int y = location.getY();
+        
+        if(!outOfBounds(location)){
+            return chessArray[x][y].getColor() != color;    //If the piece at x,y is the same color as 
+        }else{                                              // move owner, their is a conflict with the move on the board
+            return true;
+        }   
+    }
+    
+    private boolean outOfBounds(Coordinate location){
         int x = location.getX();
         int y = location.getY();
         
