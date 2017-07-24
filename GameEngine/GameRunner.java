@@ -16,23 +16,23 @@ import java.util.Scanner;
 
 public class GameRunner {
     
-    
+    private GameBoard mainGameBoard;
+  
+    public GameRunner(){
+      this.mainGameBoard = new GameBoard();
     public static void main(String[]args){
-        
-        GameBoard mainGameBoard = new GameBoard();
+       
         Player player1 = new Player(true, promptPlayerName(1)); 
         Player player2 = new Player(false, promptPlayerName(2));
         
         while(!mainGameBoard.isCheckMate()){
             
             //Makes Player1 Move a Game Piece
-            while(!mainGameBoard.Move(promptMove(player1))){}
+            while(!promptMove(player1))){}
             
             //Makes Player2 Move a Game Piece
-            while(!mainGameBoard.Move(promptMove(player2))){}
-            
+            while(!promptMove(player2))){}
         }
-        
         gameEnd();
     }
     
@@ -47,32 +47,38 @@ public class GameRunner {
         return playerNameScan.nextLine();
     }
     
-    /**Asks the User for Piece to Move and Where to Move it and Sees if it is 
-     * Possible to Do So. 
+    /**Asks the User for Piece to Move and location of Piece Movement. 
      * @param playerColor
      * @return True if move was a valid move: stays on board boundary,
      * is not taken or blocked by same color piece, is a possible move for 
      * that piece type.
      */
-    private static Coordinate promptMove(Player player){
-        
+    private static boolean promptMove(Player player){
         Scanner scan = new Scanner(System.in);
-        String pieceOrigin;
-        int xCoordinate = -1;
-        int yCoordinate = -1;
-        
-        System.out.println(player.getPlayerName() + ": Please Choose a Piece..."
-                + " EX: 1,2");
-        pieceOrigin = scan.nextLine();
-        
-        //Converts String Characters to Integers
-        //Input cannot contain numbers with > 1 digit in size w/o comma sperator
-        if(pieceOrigin.charAt(1) == ',' && pieceOrigin.length() == 3){ 
-             xCoordinate = (char)pieceOrigin.charAt(0);
-             yCoordinate = (char)pieceOrigin.charAt(2);
+        Coordinate initialLocation = new Coordinate();
+        Coordinate newLocation = new Coordinate();
+      
+        //User Prompt and Validation Loop for Piece Selection
+        do{
+          System.out.println("Please enter the x coordinate of the piece you want to move...");
+          initialLocation.setX(scan.nextInt());
+          System.out.println("Please enter the y coordinate of the piece you want to move...");
+          initialLocation.setY(scan.nextInt());
+        }while(mainGameBoard.isValidLocation(initialLocation));
+      
+        //User Prompt and Validation Loop for Desired Piece Movement
+        do{
+          System.out.println("Please enter desired x coordinate...");
+          newLocation.setX(scan.nextInt());
+          System.out.println("Please enter desired y coordinate...");
+          newLocation.setY(scan.nextInt());
+        }while(mainGameBoard.isValidLocation(newLocation));
+      
+        //Actual Movement of Piece and Validation
+        if(mainGameBoard.getPieceAt(initialLocation).move(newLocation)){
+            return true;
         }else{
-            invalidEntry(COORDINATE_INPUT_ERR);
+          return false;
         }
-        return new Coordinate(xCoordinate, yCoordinate);
     }
 }
