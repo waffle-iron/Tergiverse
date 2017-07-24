@@ -4,6 +4,7 @@ package GameEngine;
 public class GameBoard {
     public final int BOARD_LENGTH = 8;
     private Piece[][] chessArray;            //Represents chess board and piece location
+    private Stack<Piece> graveyard;          //Stores killed Pieces
     private PieceGenerator arrayInit;        //Fills chess board array with pieces
     private Coordinate whiteKingLocation;    //Used for Check and Checkmate methods
     private Coordinate blackKingLocation;    //Used for Check and Checkmate methods
@@ -11,6 +12,7 @@ public class GameBoard {
     public GameBoard(){
         this.arrayInit = new PieceGenerator();
         this.chessArray = arrayInit.initializeChessArray();
+        this.graveyard = new Stack<Piece>();
         this.whiteKingLocation = new Coordinate(0,0);   //NEEDS TO BE CHANGED
         this.blackKingLocation = new Coordinate(0,0);   //NEEDS TO BE CHANGED
     }
@@ -55,6 +57,22 @@ public class GameBoard {
         return getPieceAt(location).getColor == color;
     }
     
+    /**Purpose is to complete the final step in the piece movement process by assigning the
+    specified Piece to the new location after move validation methods
+    @param Coordinate initialLocation, Coordinate newLocation
+    @return boolean: true if the move is sucessful, false otherwise
+    */
+    public boolean movePiece(Coordinate initialLocation, Coordinate newLocation){
+        int oldX = initialLocation.getX();
+        int oldY = initialLocation.getY();
+        int newX = initialLocation.getX();
+        int newY = initialLocation.getY();
+        
+        chessArray[newX][newY] = chessArray[oldX][oldY];
+        killPiece(chessArray[oldX][oldY]);
+        return true;
+    }
+    
     /**Purpose is to check if the desired move location is within the board and the space
     is not occupied by a Piece of the same color
     @param Coordinate location, boolean color
@@ -86,5 +104,16 @@ public class GameBoard {
         int y = location.getY();
         
         return !(x < BOARD_LENGTH && x >= 0 && y < BOARD_LENGTH && y >= 0); //If it is in bounds, return false
-    }             
+    }  
+    
+    /**Purpose is to destroy a Piece at a given location, may be used for killboard later in implementation
+    @param Coordinate killLocation
+    */
+    private void killPiece(Coordinate killLocation){
+        int x = killLocation.getX();
+        int y = killLocation.getY();
+        
+        graveyard.push(chessArray[x][y]);
+        chessArray[x][y] = null;
+    }
 }
