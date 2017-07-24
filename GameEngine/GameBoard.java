@@ -31,9 +31,13 @@ public class GameBoard {
         int y = location.getY();
         
         if(!outOfBounds(location)){
-            return chessArray[x][y].getColor() != color;    //If the piece at x,y is the same color as 
-        }else{                                              // move owner, their is a conflict with the move on the board
-            return true;
+            if(chessArray[x][y] == null){
+                return true;
+            }else{
+                return chessArray[x][y].getColor() != color;    //If the piece at x,y is the same color as
+            }                                                   // move owner, their is a conflict with the move on the board
+        }else{                                                 
+            return false;
         }   
     }
     
@@ -42,6 +46,5 @@ public class GameBoard {
         int y = location.getY();
         
         return !(x < BOARD_LENGTH && x >= 0 && y < BOARD_LENGTH && y >= 0); //If it is in bounds, return false
-    }
-                
+    }             
 }
