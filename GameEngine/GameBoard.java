@@ -23,16 +23,36 @@ public class GameBoard {
         return chessArray[location.getX()][location.getY];
     }
     
-    /**Purpose is to be used to Ensure that the Piece selected by giving a
-    coordinate is of the same color as the player and exists. Primarily used by GameRunner class
-    @param Coordinate location, boolean color
-    @return boolean based on if the piece exists and is the right color
+    /**Sees if the space at the given location is empty
+    @param Coordinate location
+    @return true if empty, false otherwise
     */
-    public boolean isWantedPiece(Coordiante location, boolean color){
-        int x = location.getX();
-        int y = location.getY();
-        
-        return chessArray[x][y] != null && chessArray[x][y].getColor() == color;
+    public boolean isEmptySpace(Coordiante location){
+        return getPieceAt(location) == null;
+    }
+    
+     /**Sees if the space at the given location is occupied with a black piece
+     @param Coordinate location
+     @return true if black piece occupied, false otherwise
+     */
+    public boolean isBlackOccupiedSpace(Coordinate location){
+        return getPieceAt(location).getColor() == false;
+    }
+    
+    /**Sees if the space at the given location is occupied with a white piece
+    @param Coordinate location
+    @return true if white piece occupied, false otherwise
+    */
+    public boolean isWhiteOccupiedSpace(Coordinate location){
+        return getPieceAt(location).getColor();
+    }
+    
+    /**Sees if the space at the given location is occupied with the wanted color
+    @param Coordinate location, boolean color
+    @return true if location is a piece of desired color, false if otherwise
+    */
+    public boolean isDesiredOccupiedSpace(Coordinate location, boolean color){
+        return getPieceAt(location).getColor == color;
     }
     
     /**Purpose is to check if the desired move location is within the board and the space
