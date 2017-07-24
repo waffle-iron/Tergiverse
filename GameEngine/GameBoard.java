@@ -19,11 +19,11 @@ public class GameBoard {
         return chessArray[location.getX()][location.getY];
     }
     
-    public boolean isValidLocation(Coordinate location, boolean color){
+    public boolean outOfBounds(Coordinate location){
         int x = location.getX();
         int y = location.getY();
         
-        if(x < BOARD_LENGTH && x >= 0 && y < BOARD_LENGTH && y >= 0){
-            
-            
+        return !(x < BOARD_LENGTH && x >= 0 && y < BOARD_LENGTH && y >= 0); //If it is in bounds, return false
+    }
+                
 }
