@@ -15,10 +15,19 @@ public class GameBoard {
         this.blackKingLocation = new Coordinate(0,0);   //NEEDS TO BE CHANGED
     }
     
+    /**Purpose is to Allow Outside Classes to Interact with Pieces
+    @param Coordinate location
+    @return Desired Piece at the Given Location: null if there is no piece
+    */
     public Piece getPieceAt(Coordinate location){
         return chessArray[location.getX()][location.getY];
     }
     
+    /**Purpose is to be used to Ensure that the Piece selected by giving a
+    coordinate is of the same color as the player and exists. Primarily used by GameRunner class
+    @param Coordinate location, boolean color
+    @return boolean based on if the piece exists and is the right color
+    */
     public boolean isWantedPiece(Coordiante location, boolean color){
         int x = location.getX();
         int y = location.getY();
@@ -26,6 +35,13 @@ public class GameBoard {
         return chessArray[x][y] != null && chessArray[x][y].getColor() == color;
     }
     
+    /**Purpose is to check if the desired move location is within the board and the space
+    is not occupied by a Piece of the same color
+    @param Coordinate location, boolean color
+    @return true if the given piece is able to move to the location based on the board, false
+    if it cannot.
+    NOTE: This does not involve move possibilites based on piece type, just occupied spaces and Bounds
+    */
     public boolean hasNoBoardConflicts(Coordinate location, boolean color){
         int x = location.getX();
         int y = location.getY();
@@ -41,6 +57,10 @@ public class GameBoard {
         }   
     }
     
+    /**Checks to see if the given location is within the board range
+    @param Coordinate location
+    @return true if it is OUT OF BOUNDS, false if it is within the board
+    */
     private boolean outOfBounds(Coordinate location){
         int x = location.getX();
         int y = location.getY();
