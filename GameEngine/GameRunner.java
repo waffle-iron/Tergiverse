@@ -20,6 +20,8 @@ public class GameRunner {
   
     public GameRunner(){
       this.mainGameBoard = new GameBoard();
+    }
+  
     public static void main(String[]args){
        
         Player player1 = new Player(true, promptPlayerName(1)); 
@@ -78,6 +80,7 @@ public class GameRunner {
         if(mainGameBoard.getPieceAt(initialLocation).move(newLocation)){
             return true;
         }else{
+          error(invalidMovelocation);
           return false;
         }
     }
