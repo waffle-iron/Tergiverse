@@ -66,7 +66,7 @@ public class GameRunner {
           initialLocation.setX(scan.nextInt());
           System.out.println("Please enter the y coordinate of the piece you want to move...");
           initialLocation.setY(scan.nextInt());
-        }while(mainGameBoard.isValidLocation(initialLocation), player.getColor());
+        }while(!mainGameBoard.isPiece(initialLocation), player.getColor());
       
         //User Prompt and Validation Loop for Desired Piece Movement
         do{
@@ -74,7 +74,7 @@ public class GameRunner {
           newLocation.setX(scan.nextInt());
           System.out.println("Please enter desired y coordinate...");
           newLocation.setY(scan.nextInt());
-        }while(mainGameBoard.isValidLocation(newLocation, player.getColor()));
+        }while(!mainGameBoard.hasNoBoardConflicts(newLocation, player.getColor()));
       
         //Actual Movement of Piece and Validation
         if(mainGameBoard.getPieceAt(initialLocation).move(newLocation)){
