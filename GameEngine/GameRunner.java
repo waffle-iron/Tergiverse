@@ -38,16 +38,7 @@ public class GameRunner {
         gameEnd();
     }
     
-    /**Seeks to Give Each Player a Name of Their Choice
-     * @param playerNumber 
-     * @return String describing player name
-     */
-    private static String promptPlayerName(int playerNumber){
-        
-        System.out.println("Please input a name for PLAYER" + playerNumber);
-        Scanner playerNameScan = new Scanner(System.in);
-        return playerNameScan.nextLine();
-    }
+    
     
     /**Asks the User for Piece to Move and location of Piece Movement. 
      * @param playerColor
