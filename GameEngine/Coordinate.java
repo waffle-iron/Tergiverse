@@ -1,8 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+/*Creator: Andrew Cowden
+  Project Title: Chess-Application
+  Date Created: 07/19/2017
+  Date Last Modified: 08/06/2017
+*/
+
+/*----------Class Overview------------
+This class servers as a representation of a basic coordinate with attributes x and y. Basic operations can be done such as
+setting and retrieving the x and y coordinate values. This class is used within much of the Chess Application to represent
+the possible moves and movement patterns. 
+*/
 package GameEngine;
 
 public class Coordinate{
