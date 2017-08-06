@@ -13,10 +13,12 @@ public class Player {
     
     private final boolean color;
     private final String playerName;
+    private static playerCount;
     
-    public Player(boolean color, String playerName){
+    public Player(boolean color){
         this.color = color;
-        this.playerName = playerName;
+        this.playerCount++;
+        this.playerName = "Player" + playerCount;
     }
     
     public boolean getColor(){
@@ -25,6 +27,17 @@ public class Player {
     
     public String getPlayerName(){
         return this.playerName;
+    }
+    
+    /**Seeks to Give Each Player a Name of Their Choice
+     * @param playerNumber 
+     * @return String describing player name
+     */
+    public String promptPlayerName(int playerNumber){
+        System.out.println("Please input a name for PLAYER" + playerNumber);
+        Scanner playerNameScan = new Scanner(System.in);
+        this.playerName = playerNameScan.nextLine();
+        playerNameScan.close();
     }
     
 }
