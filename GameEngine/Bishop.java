@@ -14,12 +14,27 @@ package GameEngine;
 
 public class Bishop extends Piece {
     
+    //Constants Deffinitions
+    public int PLUSINDEX = 1;
+    public int ZEROINDEX = 0;
+    public int MINUSINDEX = -1;
+    
     public Bishop(boolean color, Coordinate initialLocation){
         super(color, initialLocation);
     }
     
     
-    public ArrayDeque<Coordinate> getMovementPatterns(){
+    public ArrayDeque<Coordinate> generateMovePattern(){
         
+        ArrayDeque<coordinate> leftMoves = generateMovePattern(PLUSINDEX, ZEROINDEX);       //Incriment x coordinate
+        ArrayDeque<coordinate> rightMoves = generatMovePattern(MINUSINDEX, ZEROINDEX);      //Decriment x coordinate
+        ArrayDeque<coordinate> upMoves = generateMovePattern(ZEROINDEX, PLUSINDEX);         //Incriment y coordinate
+        ArrayDeque<coordinate> downMoves = generateMovePattern(ZEROINDEX, MINUSINDEX);      //Decriment y coordinate
+        
+        return //combination of different moves
+    }
+  
+    private ArrayDeque<Coordinate> generateMovePattern(int indexPrimary, int indexSecondary, Coordinate initialLocation){
+        //recursive implementation of movement patterns
     }
 }
