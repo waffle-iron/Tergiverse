@@ -1,5 +1,6 @@
 
 package GameEngine;
+import java.util.Stack;
 
 public class GameBoard {
     public final int BOARD_LENGTH = 8;
@@ -12,55 +13,63 @@ public class GameBoard {
     public GameBoard(){
         this.arrayInit = new PieceGenerator();
         this.chessArray = arrayInit.initializeChessArray();
-        this.graveyard = new Stack<Piece>();
+        this.graveyard = new Stack();
         this.whiteKingLocation = new Coordinate(0,0);   //NEEDS TO BE CHANGED
         this.blackKingLocation = new Coordinate(0,0);   //NEEDS TO BE CHANGED
     }
     
+    
     /**Purpose is to Allow Outside Classes to Interact with Pieces
-    @param Coordinate location
-    @return Desired Piece at the Given Location: null if there is no piece
+     * @param location
+     *@return Desired Piece at the Given Location: null if there is no piece
     */
     public Piece getPieceAt(Coordinate location){
-        return chessArray[location.getX()][location.getY];
+        return chessArray[location.getX()][location.getY()];
     }
     
+    
     /**Sees if the space at the given location is empty
-    @param Coordinate location
-    @return true if empty, false otherwise
+     * @param location
+     * @return true if empty, false otherwise
     */
-    public boolean isEmptySpace(Coordiante location){
+    public boolean isEmptySpace(Coordinate location){
         return getPieceAt(location) == null;
     }
     
-     /**Sees if the space at the given location is occupied with a black piece
-     @param Coordinate location
-     @return true if black piece occupied, false otherwise
-     */
+    
+    /**Sees if the space at the given location is occupied with a black piece
+    * @param location
+    * @return true if black piece occupied, false otherwise
+    */
     public boolean isBlackOccupiedSpace(Coordinate location){
-        return getPieceAt(location).getColor() == false;
+        return getPieceAt(location).getPieceColor() == false;
     }
+    
     
     /**Sees if the space at the given location is occupied with a white piece
-    @param Coordinate location
-    @return true if white piece occupied, false otherwise
+     * @param location
+     * @return true if white piece occupied, false otherwise
     */
     public boolean isWhiteOccupiedSpace(Coordinate location){
-        return getPieceAt(location).getColor();
+        return getPieceAt(location).getPieceColor();
     }
     
+    
     /**Sees if the space at the given location is occupied with the wanted color
-    @param Coordinate location, boolean color
-    @return true if location is a piece of desired color, false if otherwise
+     * @param location
+     * @param color
+     * @return true if location is a piece of desired color, false if otherwise
     */
     public boolean isDesiredOccupiedSpace(Coordinate location, boolean color){
-        return getPieceAt(location).getColor == color;
+        return getPieceAt(location).getPieceColor() == color;
     }
+    
     
     /**Purpose is to complete the final step in the piece movement process by assigning the
     specified Piece to the new location after move validation methods
-    @param Coordinate initialLocation, Coordinate newLocation
-    @return boolean: true if the move is sucessful, false otherwise
+     * @param initialLocation
+     * @param newLocation
+     * @return boolean: true if the move is sucessful, false otherwise
     */
     public boolean movePiece(Coordinate initialLocation, Coordinate newLocation){
         int oldX = initialLocation.getX();
@@ -69,16 +78,17 @@ public class GameBoard {
         int newY = initialLocation.getY();
         
         chessArray[newX][newY] = chessArray[oldX][oldY];
-        killPiece(chessArray[oldX][oldY]);
+        killPiece(initialLocation);
         return true;
     }
     
+    
     /**Purpose is to check if the desired move location is within the board and the space
     is not occupied by a Piece of the same color
-    @param Coordinate location, boolean color
-    @return true if the given piece is able to move to the location based on the board, false
-    if it cannot.
-    NOTE: This does not involve move possibilites based on piece type, just occupied spaces and Bounds
+     * @param location
+     * @param color
+     * @return true if the given piece is able to move to the location based on the board, false
+     * if it cannot. NOTE: This does not involve move possibilites based on piece type, just occupied spaces and Bounds
     */
     public boolean hasNoBoardConflicts(Coordinate location, boolean color){
         int x = location.getX();
@@ -88,12 +98,13 @@ public class GameBoard {
             if(chessArray[x][y] == null){
                 return true;
             }else{
-                return chessArray[x][y].getColor() != color;    //If the piece at x,y is the same color as
-            }                                                   // move owner, their is a conflict with the move on the board
+                return chessArray[x][y].getPieceColor() != color;    //If the piece at x,y is the same color as
+            }                                                        // move owner, their is a conflict with the move on the board
         }else{                                                 
             return false;
         }   
     }
+    
     
     /**Checks to see if the given location is within the board range
     @param Coordinate location
@@ -105,6 +116,7 @@ public class GameBoard {
         
         return !(x < BOARD_LENGTH && x >= 0 && y < BOARD_LENGTH && y >= 0); //If it is in bounds, return false
     }  
+    
     
     /**Purpose is to destroy a Piece at a given location, may be used for killboard later in implementation
     @param Coordinate killLocation
