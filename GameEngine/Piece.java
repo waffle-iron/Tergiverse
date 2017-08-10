@@ -10,26 +10,53 @@ It contains thebasis for the validation of piece movement based on the piece typ
 as methods to get the color of the piece and other aspects of the general piece definition.*/
 
 package GameEngine;
+import java.util.ArrayDeque;
 
-public abstract class Piece{  
-    private final boolean pieceColor; 
-    private final Coordinate initialLocation; 
-    private Coordinate currentLocation;  
+public abstract class Piece{
     
-    public Piece(pieceColor, initialLocation){  
-        this.pieceColor = pieceColor;  
+    //Private Instance Variables
+    private final boolean pieceColor;
+    private final Coordinate initialLocation;
+    private final ArrayDeque<Coordinate> moveList;
+    private Coordinate currentLocation;
+    
+    
+    public Piece(boolean pieceColor, Coordinate initialLocation){
+        this.pieceColor = pieceColor;
         this.initialLocation = initialLocation;
+        this.currentLocation = initialLocation;
+        this.moveList = new ArrayDeque();
     }
     
-    public boolean getPieceColor(){
-         return this.pieceColor;
-    }  
+    public boolean getPieceColor(){
+        return this.pieceColor;
+    }
     
-    //Abstract Piece Methods public abstract getPieceDescription();
-    public abstract getPieceDescription();
     
-    public abstract move(Coordinate newLocation);
+    public void setCurrentLocation(Coordinate newLocation){
+        this.currentLocation = newLocation;
+    }
     
-    private abstract validatePieceMove(Coordinate newLocation);} 
+    
+    public Coordinate getCurrentLocation(){
+        return this.currentLocation;
+    }
+    
+    
+    public Coordinate getInitialLocation(){
+        return this.initialLocation;
+    }
+    
+    
+    public void addToMoves(ArrayDeque<Coordinate> moves){
+        this.moveList.addAll(moves);
+    }
+    
+    
+    public void clearMoveList(){
+         moveList.clear();
+    }
+    
+    
+    public abstract void generateMovePattern();
 }
-
