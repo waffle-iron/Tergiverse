@@ -23,15 +23,12 @@ public class Bishop extends Piece {
         super(color, initialLocation);
     }
     
-    
-    public ArrayDeque<Coordinate> generateMovePattern(){
+    public void generateMovePattern(){
         
-        ArrayDeque<coordinate> leftMoves = generateMovePattern(PLUSINDEX, ZEROINDEX);       //Incriment x coordinate
-        ArrayDeque<coordinate> rightMoves = generatMovePattern(MINUSINDEX, ZEROINDEX);      //Decriment x coordinate
-        ArrayDeque<coordinate> upMoves = generateMovePattern(ZEROINDEX, PLUSINDEX);         //Incriment y coordinate
-        ArrayDeque<coordinate> downMoves = generateMovePattern(ZEROINDEX, MINUSINDEX);      //Decriment y coordinate
-        
-        return //combination of different moves
+        ArrayDeque<Coordinate> leftMoves = generateMovePattern(PLUSINDEX, ZEROINDEX);       //Incriment x coordinate
+        ArrayDeque<Coordinate> rightMoves = generatMovePattern(MINUSINDEX, ZEROINDEX);      //Decriment x coordinate
+        ArrayDeque<Coordinate> upMoves = generateMovePattern(ZEROINDEX, PLUSINDEX);         //Incriment y coordinate
+        ArrayDeque<Coordinate> downMoves = generateMovePattern(ZEROINDEX, MINUSINDEX);      //Decriment y coordinate
     }
   
     private ArrayDeque<Coordinate> generateMovePattern(int indexPrimary, int indexSecondary, Coordinate initialLocation){
