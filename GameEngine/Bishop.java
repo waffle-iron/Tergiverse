@@ -9,12 +9,13 @@ This class servers as a representation of the chess piece Bishop. Within this cl
 the possible movement patterns as well as storage for objects of the type Bishop. Note that this class only generates the
 possible movement patterns and does not do movement validation. That is done through the GameBoard class. 
 */
-import java.util.ArrayDeque;
-package GameEngine;
 
-public class Bishop extends Piece {
+package GameEngine;
+import java.util.ArrayDeque;
+
+public class Bishop extends Piece{
     
-    //Constants Deffinitions
+    //Constants for Move Generation
     public int PLUSINDEX = 1;
     public int ZEROINDEX = 0;
     public int MINUSINDEX = -1;
@@ -23,12 +24,15 @@ public class Bishop extends Piece {
         super(color, initialLocation);
     }
     
+    @Override
     public void generateMovePattern(){
         
-        ArrayDeque<Coordinate> leftMoves = generateMovePattern(PLUSINDEX, ZEROINDEX);       //Incriment x coordinate
-        ArrayDeque<Coordinate> rightMoves = generatMovePattern(MINUSINDEX, ZEROINDEX);      //Decriment x coordinate
-        ArrayDeque<Coordinate> upMoves = generateMovePattern(ZEROINDEX, PLUSINDEX);         //Incriment y coordinate
-        ArrayDeque<Coordinate> downMoves = generateMovePattern(ZEROINDEX, MINUSINDEX);      //Decriment y coordinate
+        Coordinate currentLocation = this.getCurrentLocation();
+        
+        this.addToMoves(generateMovePattern(PLUSINDEX, ZEROINDEX, currentLocation));       //Incriment x coordinate
+        this.addToMoves(generateMovePattern(MINUSINDEX, ZEROINDEX, currentLocation));      //Decriment x coordinate
+        this.addToMoves(generateMovePattern(ZEROINDEX, PLUSINDEX, currentLocation));       //Incriment y coordinate
+        this.addToMoves(generateMovePattern(ZEROINDEX, MINUSINDEX, currentLocation));      //Decriment y coordinate
     }
   
     private ArrayDeque<Coordinate> generateMovePattern(int indexPrimary, int indexSecondary, Coordinate initialLocation){
