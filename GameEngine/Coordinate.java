@@ -21,7 +21,11 @@ public class Coordinate{
 		this.x = x;
 		this.y = y;
 	}
-		
+	
+	public Coordinate(){
+            this(0,0);  //Sets default to (0,0)
+        }
+	
 	/*Getters and Setters for Coordinate Class*/
 	
 	public void setX(int x){ this.x = x; }
