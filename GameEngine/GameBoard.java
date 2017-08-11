@@ -5,7 +5,6 @@ import java.util.Stack;
 public class GameBoard {
     public final int BOARD_LENGTH = 8;
     private Piece[][] chessArray;            //Represents chess board and piece location
-    private Stack<Piece> graveyard;          //Stores killed Pieces
     private PieceGenerator arrayInit;        //Fills chess board array with pieces
     private Coordinate whiteKingLocation;    //Used for Check and Checkmate methods
     private Coordinate blackKingLocation;    //Used for Check and Checkmate methods
@@ -13,7 +12,6 @@ public class GameBoard {
     public GameBoard(){
         this.arrayInit = new PieceGenerator();
         this.chessArray = arrayInit.initializeChessArray();
-        this.graveyard = new Stack();
         this.whiteKingLocation = new Coordinate(0,0);   //NEEDS TO BE CHANGED
         this.blackKingLocation = new Coordinate(0,0);   //NEEDS TO BE CHANGED
     }
