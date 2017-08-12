@@ -38,9 +38,9 @@ public class GameBoard implements GameBoard_Interface{
        if(tempPiece == null){               //Empty Space
            return EMPTY_SPACE;
        }else if(tempPiece.getAlignment()){  //White Occupied Space
-           return WHITE_SPACE;
+           return WHITE_SIDE;
        }else{
-           return BLACK_SPACE;              //Black Occupied Space
+           return BLACK_SIDE;               //Black Occupied Space
        }
     }
     
