@@ -3,7 +3,7 @@ package GameEngine;
 import java.util.Stack;
 
 public class GameBoard implements GameBoard_Interface{
-    public final int BOARD_LENGTH = 8;
+    
     private Piece[][] gameArrayArray;        //Represents game board and piece location
     private PieceGenerator arrayInit;        //Fills chess board array with pieces
     private Coordinate whiteKingLocation;    //Used for Corruption Generation Check
