@@ -1,19 +1,19 @@
 /*Creator: Andrew Cowden
-  Project Title: Chess-Application
+  Project Title: Tergiverse
   Date Created: 07/19/2017
-  Date Last Modified: 08/06/2017
+  Date Last Modified: 08/11/2017
 */
 
 /*----------Class Overview------------
-This class servers as a representation of the chess piece Bishop. Within this class are methods and attributes to represent
-the possible movement patterns as well as storage for objects of the type Bishop. Note that this class only generates the
+This class servers as a representation of the game piece Scouter. Within this class are methods and attributes to represent
+the possible movement patterns as well as storage for objects of the type Scouter. Note that this class only generates the
 possible movement patterns and does not do movement validation. That is done through the GameBoard class. 
 */
 
 package GameEngine;
 import java.util.ArrayDeque;
 
-public class Bishop extends Piece{
+public class Scouter extends Piece{
     
     //Constants for Move Generation
     public int PLUSINDEX = 1;
