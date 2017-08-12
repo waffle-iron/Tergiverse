@@ -15,11 +15,6 @@ import java.util.ArrayDeque;
 
 public class Scouter extends Piece{
     
-    //Constants for Move Generation
-    public int PLUSINDEX = 1;
-    public int ZEROINDEX = 0;
-    public int MINUSINDEX = -1;
-    
     public Bishop(boolean color, Coordinate initialLocation){
         super(color, initialLocation);
     }
