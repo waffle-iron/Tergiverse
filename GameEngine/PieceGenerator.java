@@ -11,7 +11,7 @@ package GameEngine;
  */
 public class PieceGenerator {
     
-    public Piece[][] initializeChessArray(){
+    public Piece[][] initializeGameArray(){
         
     }
 }
