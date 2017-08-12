@@ -1,4 +1,4 @@
-# Chess-Application
+# Tergiverse
 
 Last Update: 08/11/2017
 
@@ -6,7 +6,7 @@ Last Update: 08/11/2017
 
 ## General Notes
 
-* This repository is used to hold the files that encompass the Chess Application Program.
+* This repository is used to hold the files that encompass the Tergiverse Game.
 
 * This program will have multiple stages of production represented by the following... 
 * __Stage 1 Terminal Non-Opponent__ is the first and most simple implementation. It will be run through the Linux Command Line Interface and have no built in AI Opponent to face. It will be a turn based system. 
