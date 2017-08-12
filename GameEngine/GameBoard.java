@@ -19,7 +19,7 @@ public class GameBoard {
     
     /**Purpose is to Allow Outside Classes to Interact with Pieces
      * @param location
-     *@return Desired Piece at the Given Location: null if there is no piece
+     * @return Desired Piece at the Given Location: null if there is no piece
     */
     public Piece getPieceAt(Coordinate location){
         return chessArray[location.getX()][location.getY()];
@@ -116,14 +116,14 @@ public class GameBoard {
     }  
     
     
-    /**Purpose is to destroy a Piece at a given location, may be used for killboard later in implementation
-    @param Coordinate killLocation
+    /**Purpose is to convert the piece at the capture location to the color of the attacker
+    *  @param Coordinate
+    *  @param boolean
     */
-    private void killPiece(Coordinate killLocation){
-        int x = killLocation.getX();
-        int y = killLocation.getY();
-        
-        graveyard.push(chessArray[x][y]);
-        chessArray[x][y] = null;
+    private void capturePiece(Coordinate captureLocation, boolean color){
+        int x = captureLocation.getX();
+        int y = captureLocation.getY();
+       
+        chessArray[x][y].getPieceAt(captureLocation).setColor(color);
     }
 }
