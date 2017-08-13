@@ -17,33 +17,33 @@ public abstract class Piece{
     
     //Private Instance Variables
     private final ArrayDeque<Coordinate> moveList;
-    private int alignment;
+    private boolean clan;
     private Coordinate currentLocation;
     
     
-    public Piece(int alignment, Coordinate initialLocation){
-        this.alignment = alignment;
+    public Piece(boolean clan, Coordinate initialLocation){
+        this.clan = clan;
         this.currentLocation = initialLocation;
         this.moveList = new ArrayDeque();
     }
     
 	
 	/**
-	* This method returns the player alighment of the game piece
+	* This method returns the player's clan of the game piece
 	* @return boolean
 	*/
-    public int getAlignment(){
-        return this.alignment;
+    public boolean getClan(){
+        return this.clan;
     }
  	
 	
 	/**
-	* This will allow for the player alighnment of the game piece
+	* This will allow for the player clan of the game piece
 	* to be changed in the event of a capture
-	* @param alignment
+	* @param clan
 	*/
-    public void setAlignment(int alignment){
-      	this.alignment = alignment;
+    public void setClan(boolean clan){
+      	this.clan = clan;
     }
     
     

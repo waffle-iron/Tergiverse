@@ -17,8 +17,8 @@ import java.util.ArrayDeque;
 
 public class Scouter extends Piece{
     
-    public Scouter(int alighnment, Coordinate initialLocation){
-        super(alighnment, initialLocation);
+    public Scouter(boolean clan, Coordinate initialLocation){
+        super(clan, initialLocation);
     }
     
     @Override

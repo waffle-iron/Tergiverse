@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package GameEngine;
-import static GameEngine.ConstantValues.*;
 
 /**
  *
@@ -15,28 +14,20 @@ public class KingWatcher {
     private boolean whiteAlive;
     private boolean blackAlive;
     
-    public boolean isKingAlive(int alignment) throws Exception{
-        switch (alignment) {
-            case WHITE_SIDE:
-                return getWhiteAlive();
-            case BLACK_SIDE:
-                return getBlackAlive();
-            default:
-                throw new Exception("Invalid Alignment");
+    public boolean isKingAlive(boolean clan){
+        if(clan){
+            return getWhiteAlive();
+        }else{
+            return getBlackAlive();
         }
     }
      
     
-    public void killKing(int alignment) throws Exception{
-         switch (alignment) {
-            case WHITE_SIDE:
-                killWhite();
-                break;
-            case BLACK_SIDE:
-                killBlack();
-                break;
-            default:
-                throw new Exception("Invalid Alignment");
+    public void killKing(boolean clan){
+        if(clan){
+            killWhite();
+        }else{
+            killBlack();
         }
     }
     

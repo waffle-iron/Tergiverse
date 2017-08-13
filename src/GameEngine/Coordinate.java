@@ -1,7 +1,7 @@
 /*Creator: Andrew Cowden
-  Project Title: Chess-Application
+  Project Title: Tergiverse
   Date Created: 07/19/2017
-  Date Last Modified: 08/06/2017
+  Date Last Modified: 08/12/2017
 */
 
 /*----------Class Overview------------
