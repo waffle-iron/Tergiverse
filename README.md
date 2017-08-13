@@ -2,7 +2,7 @@
 
 Last Update: 08/11/2017
 
-[![codebeat badge](https://codebeat.co/badges/a7415204-0ad9-4ee9-8795-f53dd1b7c967)](https://codebeat.co/projects/github-com-amcowden97-zombie-chess-master)
+[![codebeat badge](https://codebeat.co/badges/d3982f81-145f-448d-a913-b669a527f544)](https://codebeat.co/projects/github-com-amcowden97-tergiverse-master)
 
 ## General Notes
 
