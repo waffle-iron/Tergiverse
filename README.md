@@ -2,7 +2,6 @@
 
 Last Update: 08/17/2017
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e122f3c14e694c189b911efa2a585e9d)](https://www.codacy.com/app/am.cowden.97/Tergiverse?utm_source=github.com&utm_medium=referral&utm_content=amcowden97/Tergiverse&utm_campaign=badger)
 [![codebeat badge](https://codebeat.co/badges/d3982f81-145f-448d-a913-b669a527f544)](https://codebeat.co/projects/github-com-amcowden97-tergiverse-master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e122f3c14e694c189b911efa2a585e9d)](https://www.codacy.com/app/am.cowden.97/Tergiverse?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=amcowden97/Tergiverse&amp;utm_campaign=Badge_Grade)
 
