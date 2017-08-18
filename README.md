@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/amcowden97/Tergiverse.png?label=ready&title=Ready)](https://waffle.io/amcowden97/Tergiverse?utm_source=badge)
 # Tergiverse
 
 Last Update: 08/17/2017
